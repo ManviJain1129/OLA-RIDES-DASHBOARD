@@ -36,7 +36,7 @@ def main():
         - Dashboard Summary
     """)
 
-    st.image(config.LOGO_IMAGE_PATH, width=200)
+    st.image("images/images.png")
     st.markdown("---")
     st.write("Project by: Manvi Jain")
 
