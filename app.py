@@ -7,12 +7,19 @@ import config
 def main():
     # Load and preprocess data
     df = load_excel_data(config.EXCEL_FILE_PATH, config.SHEET_NAME)
+    if df is None:
+        st.error("Failed to load data!")
+        st.stop()
+
+    # Convert 'Booking_Value' to numeric, coerces errors to NaN
+    df['Booking_Value'] = pd.to_numeric(df['Booking_Value'], errors='coerce')
+
+    # Drop rows where 'Booking_Value' is NaN after conversion
+    df = df.dropna(subset=['Booking_Value'])
+
+    # Further preprocessing
     df = preprocess_booking_value(df)
     df = convert_to_datetime(df)
-    if df is None:
-    st.error("Failed to load data!")
-    st.stop()  # Stop app execution here
-
 
     # Debug print to verify data types
     st.write(df['Booking_Value'].apply(type).value_counts())
