@@ -9,6 +9,10 @@ def main():
     df = load_excel_data(config.EXCEL_FILE_PATH, config.SHEET_NAME)
     df = preprocess_booking_value(df)
     df = convert_to_datetime(df)
+    if df is None:
+    st.error("Failed to load data!")
+    st.stop()  # Stop app execution here
+
 
     # Debug print to verify data types
     st.write(df['Booking_Value'].apply(type).value_counts())
