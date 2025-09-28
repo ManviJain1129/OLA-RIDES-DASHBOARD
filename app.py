@@ -6,7 +6,7 @@ import config
 
 def main():
     # Load and preprocess data
-    df = load_excel_data(config.EXCEL_FILE_PATH, config.SHEET_NAME)
+    df = load_excel_data("data/OLA RIDES DATASET USED.xlsx", "OLA RIDES DATASET USED")
     if df is None:
         st.error("Failed to load data!")
         st.stop()
