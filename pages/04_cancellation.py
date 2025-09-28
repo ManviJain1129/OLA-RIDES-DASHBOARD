@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Load Excel dataset
-excel_file_path = r"C:\Users\pc\Desktop\MANVI LABMENTIX\OLA RIDES DATASET USED.xlsx"
+excel_file_path = "data/OLA RIDES DATASET USED.xlsx"
 df = pd.read_excel(excel_file_path, sheet_name='OLA RIDES DATASET USED')
 
 st.title("Cancellation Analysis")
